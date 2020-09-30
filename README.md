@@ -3,8 +3,11 @@
 ### Temporary fork - 0.3.0.1
 Based on 0.3.0, plus several PRs not yet accepted upstream.
 
+```
+./gradlew publish 
+```
 
-
+Will publish artifacts to build/repos.
 
 **Krush** is a lightweight persistence layer for Kotlin based on [Exposed SQL DSL](https://github.com/JetBrains/Exposed/wiki/DSL). It’s similar to [Requery](http://requery.io) and [Micronaut-data jdbc](https://micronaut-projects.github.io/micronaut-data/latest/guide/#jdbc), but designed to work idiomatically with Kotlin and immutable data classes.
 

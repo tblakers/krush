@@ -27,6 +27,7 @@ allprojects {
     version = "0.3.0.1"
 }
 
+
 configure([project(':annotation-processor'), project(':runtime')]) {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
@@ -52,16 +53,9 @@ configure([project(':annotation-processor'), project(':runtime')]) {
 
         repositories {
             maven {
-                credentials {
-                    username = project.properties["deployUsername"]?.toString() ?: System.getenv("DEPLOY_USERNAME")
-                    password = project.properties["deployPassword"]?.toString() ?: System.getenv("DEPLOY_PASSWORD")
-                }
-                def baseUrl = 'https://philanthropist.touk.pl/nexus/content/repositories'
-                def releasesRepoUrl = "$baseUrl/releases"
-                def snapshotsRepoUrl = "$baseUrl/snapshots"
-                url = scmVersion.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                def releasesRepoUrl = "$rootProject.buildDir/repos/releases"
+                url = releasesRepoUrl
             }
         }
     }
-
 }
